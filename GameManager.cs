@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject enemyOnePrefab;
     public GameObject enemyTwoPrefab;
+    public GameObject enemyThreePrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
         InvokeRepeating("CreateEnemyOne", 1, 2);
         // This will call CreateEnemyOne every 2 seconds starting after 1 second
         InvokeRepeating("CreateEnemyTwo", 3, 4); // This will call CreateEnemyTwo every 4 seconds starting after 1 second
+        InvokeRepeating("CreateEnemyThree", 5, 6);
     }
 
     // Update is called once per frame
@@ -33,5 +35,9 @@ public class GameManager : MonoBehaviour
         // This function can be used to create another type of enemy
         Instantiate(enemyTwoPrefab, new Vector3(9f, Random.Range(-6.5f, 6.5f), 0), Quaternion.identity);
         // You can implement this function as needed for your game
+    }
+    void CreateEnemyThree()
+    {
+        Instantiate(enemyThreePrefab, new Vector3(Random.Range(-9f, 9f), 6.5f, 0), Quaternion.identity);
     }
 }
