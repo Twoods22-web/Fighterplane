@@ -17,7 +17,19 @@ public class Player : MonoBehaviour
     private float horizontalScreenLimit = 9.5f;
     private float verticalScreenLimit = 6.5f;
 
+    private float yMin = -3.49f;
+    private float yMax = 1f;
+
     public GameObject bulletPrefab;
+
+    void LateUpdate()
+    {
+        Vector3 newPosition = transform.position;
+
+        newPosition.y = Mathf.Clamp(newPosition.y, yMin, yMax);
+
+        transform.position = newPosition;
+    }
 
     void Start()
     {
